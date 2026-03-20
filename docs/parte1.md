@@ -81,12 +81,12 @@ En el caso de Rastrigin, el Descenso de Gradiente falló drásticamente al queda
 <table style="width:100%; border-collapse: collapse; border: none;">
   <tr>
     <td style="width:50%; text-align: center; border: none;">
-      <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_numerica/gd_2d.gif" style="width:100%; max-width:500px;" />
+      <img src="https://media.githubusercontent.com/media/jihernandezc/rnaab_opt_heuristica/main/output/opt_numerica/gd_2d.gif" style="width:100%; max-width:500px;" />
       <p><strong>Figura 3: Desempeño del Descenso de Gradiente (GD).</strong><br>
       <em>Observamos cómo el método local sufre en el valle de Rosenbrock y queda atrapado irremediablemente en los mínimos locales de Rastrigin.</em></p>
     </td>
     <td style="width:50%; text-align: center; border: none;">
-      <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_numerica/pso_2d.gif" style="width:100%; max-width:500px;" />
+      <img src="https://media.githubusercontent.com/media/jihernandezc/rnaab_opt_heuristica/main/output/opt_numerica/pso_2d.gif" style="width:100%; max-width:500px;" />
       <p><strong>Figura 4: Desempeño de Cúmulo de Partículas (PSO).</strong><br>
       <em>El enfoque heurístico permite "saltar" las trampas de Rastrigin y mantener el avance en la llanura de Rosenbrock gracias a la inteligencia colectiva.</em></p>
     </td>
@@ -102,12 +102,12 @@ Para **Rastrigin 3D**, el Descenso de Gradiente volvió a demostrar su 'miopía'
 <table style="width:100%; border-collapse: collapse; border: none;">
   <tr>
     <td style="width:50%; text-align: center; border: none;">
-      <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_numerica/gd_3d.gif" style="width:100%; max-width:500px;" />
+      <img src="https://media.githubusercontent.com/media/jihernandezc/rnaab_opt_heuristica/main/output/opt_numerica/gd_3d.gif" style="width:100%; max-width:500px;" />
       <p><strong>Figura 5: Desempeño del Descenso de Gradiente (GD) en 3D.</strong><br>
       <em>El algoritmo queda atrapado en los cráteres tridimensionales de Rastrigin y se arrastra ineficientemente por el valle de Rosenbrock agotando sus 10,000 iteraciones.</em></p>
     </td>
     <td style="width:50%; text-align: center; border: none;">
-      <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_numerica/de_3d.gif" style="width:100%; max-width:500px;" />
+      <img src="https://media.githubusercontent.com/media/jihernandezc/rnaab_opt_heuristica/main/output/opt_numerica/de_3d.gif" style="width:100%; max-width:500px;" />
       <p><strong>Figura 6: Desempeño de Evolución Diferencial (DE) en 3D.</strong><br>
       <em>Robustez superior al localizar el mínimo global exacto (0.000000) en ambos escenarios, consolidándose como el método más confiable para problemas multivariables.</em></p>
     </td>
@@ -156,7 +156,9 @@ Para **Rastrigin 3D**, el Descenso de Gradiente volvió a demostrar su 'miopía'
 
 </div>
 
-De estas tablas, podemos exraer las siguientes conclusiones clave:
+<br>
+
+De estas tablas, podemos extraer las siguientes conclusiones clave:
 
 1.  **Precisión:** El **Enjambre de Partículas (PSO)** y la **Evolución Diferencial (DE)** fueron los únicos capaces de alcanzar el cero absoluto ($$0.000000$$) de forma consistente.
 2.  **Fracaso del Gradiente:** El Descenso por Gradiente (GD) se estancó en mínimos locales muy altos en Rastrigin ($$f(x) \approx 40$$ y $$20$$), confirmando que no sirve para funciones multimodales.
@@ -204,6 +206,8 @@ Esta es la diferencia clave entre un algoritmo "ciego" y uno "explorador":
 | **Aporte Principal** | Rapidez para optimización local. | Robustez para optimización global. |
 
 </div>
+
+<br>
 
 En conclusión, si el tiempo de cálculo es muy limitado y la función es simple, el **Gradiente** es suficiente. Pero si nos enfrentamos a un problema real, lleno de "trampas" y mínimos locales como Rastrigin, el gasto extra de evaluaciones de los **Métodos Heurísticos** (especialmente el **DE** y el **PSO**) es la única garantía de obtener una solución válida.
 

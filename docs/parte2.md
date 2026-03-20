@@ -74,7 +74,7 @@ En cada iteración, las feromonas se **evaporan** parcialmente, esto está contr
 Por otro lado, el parámetro **Q** determina la cantidad de feromonas que cada hormiga deposita en un determinado camino o trayecto al completar su recorrido, esto significa que, una hormiga que encontró una ruta de menor costo deposita más feromona (Q/costo), reforzando más fuertemente ese camino para las iteraciones siguientes.
 
 <div style="text-align: center;">
-    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/tsp_aco.gif" width="800" />
+    <img src="https://media.githubusercontent.com/media/jihernandezc/rnaab_opt_heuristica/main/output/opt_combinatoria/tsp_aco.gif" width="800" />
     <p><em>Figura 1: Proceso de optimización de ACO. Se observa una mejora gradual y continua gracias al refuerzo colectivo.</em></p>
 </div>
 
@@ -94,7 +94,7 @@ algoritmo se fundamenta en una **población** de soluciones candidatas (*rutas*)
 Adicionalmente se aplica **elitismo**, lo cual hace que las mejores soluciones de cada generación pasan directamente a la siguiente sin ser modificadas, garantizando que la mejor solución encontrada nunca se pierda.
 
 <div style="text-align: center;">
-    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/tsp_ga.gif" width="800" />
+    <img src="https://media.githubusercontent.com/media/jihernandezc/rnaab_opt_heuristica/main/output/opt_combinatoria/tsp_ga.gif" width="800" />
     <p><em>Figura 2: Evolución del Algoritmo Genético. Se notan cambios abruptos cuando un "hijo" hereda una secuencia superior.</em></p>
 </div>
 
@@ -128,7 +128,7 @@ El **ACO** logró reducir el costo en casi **$6,000 MXN** respecto al GA. Sin em
 La diferencia entre ambos métodos se vuelve evidente al observar el rastro que dejaron sobre el mapa.
 
 <div style="text-align: center;">
-    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/comparativa_rutas.png" width="700" />
+    <img src="https://raw.githubusercontent.com/jihernandezc/rnaab_opt_heuristica/refs/heads/main/output/opt_combinatoria/comparativa_rutas.png" width="700" />
     <p><em>Figura 3: A la izquierda, el ACO muestra una ruta fluida que barre el país de sureste a noroeste. A la derecha, el GA presenta cruces ineficientes, señal clara de un estancamiento.</em></p>
 </div>
 
@@ -136,7 +136,7 @@ La diferencia entre ambos métodos se vuelve evidente al observar el rastro que 
 *   **Ruta GA (El caos del principiante):** Aunque encuentra conexiones buenas, comete errores costosos, como saltar de Monterrey a Tepic para luego volver a subir hacia el centro. Estos "cruces" de caminos son los que disparan el kilometraje.
 
 <div style="text-align: center;">
-    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/curvas_convergencia.png" width="750" />
+    <img src="https://raw.githubusercontent.com/jihernandezc/rnaab_opt_heuristica/refs/heads/main/output/opt_combinatoria/curvas_convergencia.png" width="750" />
     <p><em>Figura 4: Evolución del costo. El GA (azul) cae rápido pero se estanca en una meseta. El ACO (rojo) inicia mejor y sigue puliendo la solución hasta el final.</em></p>
 </div>
 
@@ -147,7 +147,7 @@ La **curva de convergencia** del GA es reveladora: cae drásticamente en las pri
 ¿Qué sucede si el sueldo del vendedor sube? ¿Cambiaría la ruta para priorizar la velocidad sobre la distancia? Realizamos cinco simulaciones variando el salario por hora para observar la flexibilidad de los algoritmos.
 
 <div style="text-align: center;">
-    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/lineas_comparativas.png" width="700" />
+    <img src="https://raw.githubusercontent.com/jihernandezc/rnaab_opt_heuristica/refs/heads/main/output/opt_combinatoria/curvas_convergencia.png" width="700" />
     <p><em>Figura 5: Impacto del salario en el costo total. La brecha de $6,000 MXN entre ACO y GA se mantiene constante en todos los niveles.</em></p>
 </div>
 
@@ -157,8 +157,11 @@ La **curva de convergencia** del GA es reveladora: cae drásticamente en las pri
 2.  **La Tiranía de los Peajes:** Al observar el desglose por componentes, notamos algo fascinante: **los peajes son el gasto dominante**. Representan más del 60% del costo total. Esto explica por qué la ruta óptima casi no cambia al subir el salario; el costo de las casetas es tan alto que la prioridad siempre será recorrer menos kilómetros, incluso si eso implica que el vendedor pase más tiempo al volante.
 3.  **Invariabilidad de la Ruta:** La distancia de la mejor ruta del ACO osciló apenas entre 8,820 y 8,886 km. Esto demuestra que la estructura de costos en México está "anclada" a la infraestructura vial; no importa cuánto gane el vendedor, la ruta más barata siempre será la que minimice el paso por casetas y el consumo de gasolina.
 
-![Desglose por componente](https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/barras_apiladas.png)
-*Figura 4: Desglose de costos. El combustible y los peajes (dependientes de la distancia) asfixian el impacto del salario en la toma de decisiones.*
+
+<div style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/jihernandezc/rnaab_opt_heuristica/refs/heads/main/output/opt_combinatoria/barras_apiladas.png" width="700" />
+    <p><em>Figura 6: Desglose de costos. El combustible y los peajes (dependientes de la distancia) asfixian el impacto del salario en la toma de decisiones.</em></p>
+</div>
 
 ### 6.4. Conclusión del Análisis
 
