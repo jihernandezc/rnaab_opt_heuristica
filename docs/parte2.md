@@ -1,10 +1,24 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style> table { margin: 0 auto !important; } </style>
+
+<div style="position: sticky; top: 0; background-color: white; padding: 10px 0; border-bottom: 1px solid #ddd; z-index: 999; text-align: center; width: 100%;">
+  <a href="index.html" style="text-decoration: none;">🏠 <b>Inicio</b></a> | 
+  <a href="parte1.html" style="text-decoration: none;">📈 <b>Parte 1</b></a> | 
+  <a href="parte2.html" style="text-decoration: none;">🗺️ <b>Parte 2</b></a> | 
+  <a href="ia.html" style="text-decoration: none;">🤖 <b>Uso de IA</b></a>
+</div>
+
+<br>
+
 # Parte 2: Optimización Combinatoria
 
 ## 1. Introducción
 
 Imagina que eres un gerente de logística encargado de diseñar la ruta de ventas más eficiente para cubrir todo México. El objetivo parece simple: un vendedor debe visitar exactamente una vez cada una de las **32 capitales estatales**, minimizando el costo total del trayecto y regresando al punto de partida. 
 
-Sin embargo, detrás de esta simplicidad se esconde el **Problema del Vendedor Viajero (TSP)**, un enigma de clase **NP-hard**. Con 32 ciudades, existen aproximadamente $2.6 \times 10^{35}$ rutas posibles. Si intentáramos resolverlo por fuerza bruta probando una ruta por segundo, tardaríamos más que la edad actual del universo. Por ello, en esta etapa del proyecto, modelamos el costo operativo real de un vendedor en las carreteras mexicanas y desplegamos dos potentes metaheurísticas para hallar la solución óptima: **Colonias de Hormigas (ACO)** y **Algoritmos Genéticos (GA)**.
+Sin embargo, detrás de esta simplicidad se esconde el **Problema del Vendedor Viajero (TSP)**, un enigma de clase **NP-hard**. Con 32 ciudades, existen aproximadamente $$2.6 \times 10^{35}$$ rutas posibles. Si intentáramos resolverlo por fuerza bruta probando una ruta por segundo, tardaríamos más que la edad actual del universo. Por ello, en esta etapa del proyecto, modelamos el costo operativo real de un vendedor en las carreteras mexicanas y desplegamos dos potentes metaheurísticas para hallar la solución óptima: **Colonias de Hormigas (ACO)** y **Algoritmos Genéticos (GA)**.
 
 
 ## 2. Modelado de Costos
@@ -25,15 +39,15 @@ Para que el experimento sea un reflejo fiel de la realidad logística, hemos def
 
 Para calcular la distancia entre dos ciudades dentro de la lista de capitales, hemos decidido utilizar la **fórmula de Haversine**. Esta es crucial para identificar la distancia mínima real entre dos puntos de una esfera (nuestro planeta), ya que tiene en cuenta la **curvatura de la Tierra** a partir de las coordenadas geográficas (latitud y longitud). Al tratar con un país de la extensión de México, la curvatura no es despreciable.
 
-$$\text{Distancia} = 2 \cdot R \cdot \operatorname{asin} \left( \sqrt{\sin^2 \left( \frac{\Delta \text{lat}}{2} \right) + \cos(\text{lat}_1) \cdot \cos(\text{lat}_2) \cdot \sin^2 \left( \frac{\Delta \text{lon}}{2} \right)} \right)$$
+$$ \text{Distancia} = 2 \cdot R \cdot \operatorname{asin} \left( \sqrt{\sin^2 \left( \frac{\Delta \text{lat}}{2} \right) + \cos(\text{lat}_1) \cdot \cos(\text{lat}_2) \cdot \sin^2 \left( \frac{\Delta \text{lon}}{2} \right)} \right)$$
 
 **Variables y parámetros:**
-*   $lat, lon$: Latitud y Longitud.
-*   $(lat_1, lon_1)$: Coordenadas del punto de origen.
-*   $(lat_2, lon_2)$: Coordenadas del punto de destino.
-*   $\Delta lat = lat_2 - lat_1$
-*   $\Delta lon = lon_2 - lon_1$
-*   $R = 6372.795 \text{ km}$ (Radio medio de la Tierra).
+* $$lat, lon$$: Latitud y Longitud.
+* $$(lat_1, lon_1)$$: Coordenadas del punto de origen.
+* $$(lat_2, lon_2)$$: Coordenadas del punto de destino.
+* $$\Delta lat = lat_2 - lat_1$$: Diferencia de latitud entre los dos puntos.
+* $$\Delta lon = lon_2 - lon_1$$: Diferencia de longitud entre los dos puntos.
+* $$R = 6372.795 \text{ km}$$ (Radio medio de la Tierra).
 
 ## 4. Construcción de la Matriz de Costos
 
@@ -60,7 +74,7 @@ En cada iteración, las feromonas se **evaporan** parcialmente, esto está contr
 Por otro lado, el parámetro **Q** determina la cantidad de feromonas que cada hormiga deposita en un determinado camino o trayecto al completar su recorrido, esto significa que, una hormiga que encontró una ruta de menor costo deposita más feromona (Q/costo), reforzando más fuertemente ese camino para las iteraciones siguientes.
 
 <div style="text-align: center;">
-    <img src="../output/opt_combinatoria/tsp_aco.gif" width="800" />
+    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/tsp_aco.gif" width="800" />
     <p><em>Figura 1: Proceso de optimización de ACO. Se observa una mejora gradual y continua gracias al refuerzo colectivo.</em></p>
 </div>
 
@@ -80,7 +94,7 @@ algoritmo se fundamenta en una **población** de soluciones candidatas (*rutas*)
 Adicionalmente se aplica **elitismo**, lo cual hace que las mejores soluciones de cada generación pasan directamente a la siguiente sin ser modificadas, garantizando que la mejor solución encontrada nunca se pierda.
 
 <div style="text-align: center;">
-    <img src="../output/opt_combinatoria/tsp_ga.gif" width="800" />
+    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/tsp_ga.gif" width="800" />
     <p><em>Figura 2: Evolución del Algoritmo Genético. Se notan cambios abruptos cuando un "hijo" hereda una secuencia superior.</em></p>
 </div>
 
@@ -92,7 +106,9 @@ Tras configurar nuestro ecosistema logístico y calibrar los motores de búsqued
 
 Al comparar el rendimiento directo, observamos un duelo clásico en la computación evolutiva: la eficiencia bruta del Algoritmo Genético frente a la precisión meticulosa de la Colonia de Hormigas.
 
-<div align="center">
+<div align="center" markdown="1">
+
+### Tabla 1: Comparativa de Resultados
 
 | Métrica | Colonia de Hormigas (ACO) | Algoritmo Genético (GA) |
 | :---: | :---: | :---: |
@@ -101,9 +117,7 @@ Al comparar el rendimiento directo, observamos un duelo clásico en la computaci
 | **Tiempo de Ejecución** | 14.94 s | **2.60 s** |
 | **Veredicto** | **Más Económico** | **Más Rápido** |
 
-<p align="center">
-  <em>Tabla 1: Comparativa de resultados. El ACO entrega una ruta más barata pero a costa de un tiempo de cómputo mayor.</em>
-</p>
+> **Nota:** El ACO entrega una ruta más barata, pero a costa de un tiempo de cómputo mayor.
 
 </div>
 
@@ -114,7 +128,7 @@ El **ACO** logró reducir el costo en casi **$6,000 MXN** respecto al GA. Sin em
 La diferencia entre ambos métodos se vuelve evidente al observar el rastro que dejaron sobre el mapa.
 
 <div style="text-align: center;">
-    <img src="../output/opt_combinatoria/comparativa_rutas.png" width="700" />
+    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/comparativa_rutas.png" width="700" />
     <p><em>Figura 3: A la izquierda, el ACO muestra una ruta fluida que barre el país de sureste a noroeste. A la derecha, el GA presenta cruces ineficientes, señal clara de un estancamiento.</em></p>
 </div>
 
@@ -122,7 +136,7 @@ La diferencia entre ambos métodos se vuelve evidente al observar el rastro que 
 *   **Ruta GA (El caos del principiante):** Aunque encuentra conexiones buenas, comete errores costosos, como saltar de Monterrey a Tepic para luego volver a subir hacia el centro. Estos "cruces" de caminos son los que disparan el kilometraje.
 
 <div style="text-align: center;">
-    <img src="../output/opt_combinatoria/curvas_convergencia.png" width="750" />
+    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/curvas_convergencia.png" width="750" />
     <p><em>Figura 4: Evolución del costo. El GA (azul) cae rápido pero se estanca en una meseta. El ACO (rojo) inicia mejor y sigue puliendo la solución hasta el final.</em></p>
 </div>
 
@@ -133,7 +147,7 @@ La **curva de convergencia** del GA es reveladora: cae drásticamente en las pri
 ¿Qué sucede si el sueldo del vendedor sube? ¿Cambiaría la ruta para priorizar la velocidad sobre la distancia? Realizamos cinco simulaciones variando el salario por hora para observar la flexibilidad de los algoritmos.
 
 <div style="text-align: center;">
-    <img src="../output/opt_combinatoria/lineas_comparativas.png" width="700" />
+    <img src="https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/lineas_comparativas.png" width="700" />
     <p><em>Figura 5: Impacto del salario en el costo total. La brecha de $6,000 MXN entre ACO y GA se mantiene constante en todos los niveles.</em></p>
 </div>
 
@@ -143,7 +157,7 @@ La **curva de convergencia** del GA es reveladora: cae drásticamente en las pri
 2.  **La Tiranía de los Peajes:** Al observar el desglose por componentes, notamos algo fascinante: **los peajes son el gasto dominante**. Representan más del 60% del costo total. Esto explica por qué la ruta óptima casi no cambia al subir el salario; el costo de las casetas es tan alto que la prioridad siempre será recorrer menos kilómetros, incluso si eso implica que el vendedor pase más tiempo al volante.
 3.  **Invariabilidad de la Ruta:** La distancia de la mejor ruta del ACO osciló apenas entre 8,820 y 8,886 km. Esto demuestra que la estructura de costos en México está "anclada" a la infraestructura vial; no importa cuánto gane el vendedor, la ruta más barata siempre será la que minimice el paso por casetas y el consumo de gasolina.
 
-![Desglose por componente](../output/opt_combinatoria/barras_apiladas.png)
+![Desglose por componente](https://github.com/jihernandezc/rnaab_opt_heuristica/blob/main/output/opt_combinatoria/barras_apiladas.png)
 *Figura 4: Desglose de costos. El combustible y los peajes (dependientes de la distancia) asfixian el impacto del salario en la toma de decisiones.*
 
 ### 6.4. Conclusión del Análisis
