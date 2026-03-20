@@ -147,7 +147,7 @@ La **curva de convergencia** del GA es reveladora: cae drásticamente en las pri
 ¿Qué sucede si el sueldo del vendedor sube? ¿Cambiaría la ruta para priorizar la velocidad sobre la distancia? Realizamos cinco simulaciones variando el salario por hora para observar la flexibilidad de los algoritmos.
 
 <div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/jihernandezc/rnaab_opt_heuristica/refs/heads/main/output/opt_combinatoria/curvas_convergencia.png" width="700" />
+    <img src="https://raw.githubusercontent.com/jihernandezc/rnaab_opt_heuristica/refs/heads/main/output/opt_combinatoria/lineas_comparativas.png" width="700" />
     <p><em>Figura 5: Impacto del salario en el costo total. La brecha de $6,000 MXN entre ACO y GA se mantiene constante en todos los niveles.</em></p>
 </div>
 
